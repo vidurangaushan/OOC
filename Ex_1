@@ -1,0 +1,111 @@
+//EX1
+/*
+1) In the Circle structure include member variable radius ( float ) , in the Rectangle structure
+include member variables length ( float ) and width ( float ) and in the Square structure
+include member variable length ( float).
+
+2) Write three functions to find the area of a Circle, area of a Rectangle and the area of a
+Square.
+
+3) Input the data and find the area of the green colour area, using the functions
+implemented above. Format the output to 3 decimal places.
+*/
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+struct Rectangle {
+
+	float length;
+
+	float width;
+};
+
+struct Square {
+
+	float length;
+
+};
+
+struct Circle {
+
+float radius;
+
+};
+
+
+float areaRectangle(Rectangle r);
+
+float areaCircle(Circle c);
+
+float areaSquare(Square s);
+
+
+int main()
+{
+	Rectangle build;
+
+	Rectangle yard;
+
+	Circle c1;
+
+	Square s1;
+
+	float lawnArea, yardArea, circleArea, rectangleArea, squareArea;
+
+	cout << "Enter radius of pond :";
+  cin >> c1.radius;
+
+	cout << "Enter length for square building :";
+	cin >> s1.length;
+
+	cout << "Enter width for rectangle building :";
+	cin >> build.width;
+
+	cout << "Enter length for rectangle building :";
+	cin >> build.length;
+
+	cout << "Enter width for yard :";
+	cin >> yard.width;
+
+	cout << "Enter length for yard :";
+	cin >> yard.length;
+
+
+
+	circleArea = areaCircle(c1);
+
+	rectangleArea = areaRectangle(build);
+
+	yardArea = areaRectangle(yard);
+
+	squareArea = areaSquare(s1);
+
+	lawnArea = yardArea - (circleArea + rectangleArea + squareArea);
+
+	cout << "Lawn Area :" << lawnArea << setiosflags(ios::fixed) << setprecision(2) << endl;
+
+
+	return 0;
+
+}
+
+float areaRectangle(Rectangle r) {
+
+	return r.length * r.width;
+
+}
+
+float areaCircle(Circle c) {
+
+	return ((22.0 / 7.0) * c.radius * c.radius);
+
+}
+
+float areaSquare(Square s) {
+
+	return s.length * s.length;
+
+}
