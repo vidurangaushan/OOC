@@ -1,0 +1,134 @@
+//............................................................................
+/*
+Exercise 2:
+1) The owner of the above land wants to build a fence around the main land. Write a function to
+find the perimeter of a Rectangle which uses a reference parameter to update the perimeter when
+the length and the width of the rectangle are given as parameters.
+2) Write another function to find the cost of building a fence when the perimeter and the cost per
+unit (in meters) are given.
+3) Print the total cost in the main program with 2 decimal places.
+*/
+
+#include <iostream>
+using namespace std;
+#include <iomanip>
+
+struct Rectangle {
+
+	float length;
+
+	float width;
+
+};
+
+
+
+struct Square {
+
+	float length;
+
+};
+
+struct Circle {
+
+	float radius;
+
+};
+
+
+float areaRectangle(Rectangle r);
+
+float areaCircle(Circle c);
+
+float areaSquare(Square s);
+
+void perimeter(Rectangle r, float &peri);
+
+void findCost(float& cost, float unitPrice, float peri);
+
+
+int main()
+{
+	Rectangle build;
+
+	Rectangle yard;
+
+	Circle c1;
+
+	Square s1;
+
+	float lawnArea, yardArea, circleArea, rectangleArea, squareArea;
+	float cost, peri, unitPrice;
+
+	cout << "Enter radius of pond :";
+	cin >> c1.radius;
+
+	cout << "Enter length for square building :";
+	cin >> s1.length;
+
+	cout << "Enter width for rectangle building :";
+	cin >> build.width;
+
+	cout << "Enter length for rectangle building :";
+	cin >> build.length;
+
+	cout << "Enter width for yard :";
+	cin >> yard.width;
+
+	cout << "Enter length for yard :";
+	cin >> yard.length;
+
+	circleArea = areaCircle(c1);
+
+	rectangleArea = areaRectangle(build);
+
+	yardArea = areaRectangle(yard);
+
+	squareArea = areaSquare(s1);
+
+	lawnArea = yardArea - (circleArea + rectangleArea + squareArea);
+
+	cout << "Lawn Area :" << lawnArea << setiosflags(ios::fixed) << setprecision(2) << endl;
+
+
+	cout << "Enter unit price:";
+	cin >> unitPrice;
+
+	perimeter(yard, peri);
+
+	findCost(cost, unitPrice, peri);
+
+	cout << "Perimeter of the lawn :" << peri << endl;
+
+	cout << "Total cost for the fence :" << cost << setiosflags(ios::fixed) << setprecision(2) << endl;
+
+	return 0;
+
+}
+
+float areaRectangle(Rectangle r) {
+
+	return r.length * r.width;
+
+}
+
+float areaCircle(Circle c) {
+
+	return ((22.0 / 7.0) * c.radius * c.radius);
+
+}
+
+float areaSquare(Square s) {
+
+	return s.length * s.length;
+
+}
+void perimeter(Rectangle r, float &peri)
+{
+	peri = 2 * (r.width + r.length);
+}
+
+void findCost(float &cost, float unitPrice, float peri)
+{
+	cost = unitPrice * peri;
+}
