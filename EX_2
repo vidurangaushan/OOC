@@ -9,6 +9,7 @@ unit (in meters) are given.
 3) Print the total cost in the main program with 2 decimal places.
 */
 
+
 #include <iostream>
 using namespace std;
 #include <iomanip>
@@ -20,8 +21,6 @@ struct Rectangle {
 	float width;
 
 };
-
-
 
 struct Square {
 
